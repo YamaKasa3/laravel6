@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>POST</h1>
-    <p>{{ $post }}</p>
+    <h1>My Blog POST</h1>
+    <p>{{ $post->body }}</p>
 </body>
 </html>
