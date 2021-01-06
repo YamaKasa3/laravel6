@@ -32,10 +32,12 @@
         <div id="sidebar">
             <ul class="style1">
                 @foreach ($articles as $article)
-                    <li class="first">
-                        <h3>{{ $article->title }}</h3>
-                        <p><a href="#">{{ $article->except }}</a></p>
-                    </li>
+                <li class="first">
+                    <h3>
+                        <a href="/articles/{{ $article->id }}">{{ $article->title }}</a>
+                    </h3>
+                    <p>{{ $article->except }}</p>
+                </li>
                 @endforeach
             </ul>
             <div id="stwo-col">
