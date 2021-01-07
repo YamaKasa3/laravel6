@@ -20,8 +20,8 @@ Released   : 20140225
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
     <link href="/css/default.css" rel="stylesheet" />
     <link href="/css/fonts.css" rel="stylesheet" />
-    <link href="/css/app.css" rel="stylesheet" />
 
+    @yield('head')
 </head>
 
 <body>
@@ -42,7 +42,7 @@ Released   : 20140225
                         <a href="/about" accesskey="3" title="">About Us</a>
                     </li>
                     <li class={{ Request::path() === 'articles' ? 'current_page_item' : ''}}>
-                        <a href="articles" accesskey="4" title="">Articles</a>
+                        <a href="/articles" accesskey="4" title="">Articles</a>
                     </li>
                     <li class={{ Request::path() === 'contact' ? 'current_page_item' : ''}}>
                         <a href="#" accesskey="5" title="">Contact Us</a>
