@@ -16,11 +16,9 @@ class ArticlesController extends Controller
         return view('articles.index', ['articles' => $articles] );
     }
 
-    public function show($id)
+    public function show(Article $article)
     {
         // Show a single resource
-
-        $article = Article::find($id);
 
         return view('articles.show', ['article' => $article]);
     }
@@ -36,8 +34,13 @@ class ArticlesController extends Controller
     {
         // Persist the new resource
         
-        $article = new Article();
+        request()->validate([
+            'title' => 'required',
+            'except' => 'required',
+            'body' => 'required',
+        ]);
 
+        $article = new Article();
         $article->title = request('title');
         $article->except = request('except');
         $article->body = request('body');
@@ -46,17 +49,21 @@ class ArticlesController extends Controller
         return redirect('/articles');
     }
 
-    public function edit($id)
+    public function edit(Article $article)
     {
         // Show a view to edit an exisiting recource
-        $article = Article::find($id);
         return view('articles.edit', compact('article'));
     }
 
-    public function update($id)
+    public function update(Article $article)
     {
         // Persist the edit resource
-        $article = Article::find($id);
+
+        request()->validate([
+            'title' => 'required',
+            'except' => 'required',
+            'body' => 'required',
+        ]);
 
         $article->title = request('title');
         $article->except = request('except');

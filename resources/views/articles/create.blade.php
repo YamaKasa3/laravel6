@@ -14,19 +14,28 @@
             <div class="field">
                 <label class="label" for="title">Title</label>
                 <div class="control">
-                    <input class="input" type="text" name="title" id="title">
+                    <input class="input @error('title') is-danger @enderror" type="text" name="title" id="title" value="{{ old('title') }}">
+                    @error('title')
+                    <p class="help is-danger">{{ $errors->first('title') }}</p>
+                    @enderror
                 </div>
             </div>
             <div class="field">
                 <label class="label" for="except">Except</label>
                 <div class="control">
-                    <textarea class="textarea" name="except" id="except"></textarea>
+                    <textarea class="textarea @error('except') is-danger @enderror" name="except" id="except">{{ old('except') }}</textarea>
+                    @error('except')
+                    <p class="help is-danger">{{ $errors->first('except') }}</p>
+                    @enderror
                 </div>
             </div>
             <div class="field">
                 <label class="label" for="body">Body</label>
                 <div class="control">
-                    <textarea class="textarea" name="body" id="body"></textarea>
+                    <textarea class="textarea @error('body') is-danger @enderror" name="body" id="body">{{old('body')}}</textarea>
+                    @error('body')
+                    <p class="help is-danger">{{ $errors->first('body') }}</p>
+                    @enderror
                 </div>
             </div>
             <div class="field is-grouped">
