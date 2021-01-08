@@ -34,17 +34,7 @@ class ArticlesController extends Controller
     {
         // Persist the new resource
         
-        request()->validate([
-            'title' => 'required',
-            'except' => 'required',
-            'body' => 'required',
-        ]);
-
-        $article = new Article();
-        $article->title = request('title');
-        $article->except = request('except');
-        $article->body = request('body');
-        $article->save();
+        Article::create($this->validateArticle());
 
         return redirect('/articles');
     }
@@ -59,16 +49,7 @@ class ArticlesController extends Controller
     {
         // Persist the edit resource
 
-        request()->validate([
-            'title' => 'required',
-            'except' => 'required',
-            'body' => 'required',
-        ]);
-
-        $article->title = request('title');
-        $article->except = request('except');
-        $article->body = request('body');
-        $article->save();
+        $article->update($this->validateArticle());
 
         return redirect('/articles/' . $article->id);
     }
@@ -76,5 +57,14 @@ class ArticlesController extends Controller
     public function destroy()
     {
         // Delete the resource
+    }
+
+    protected function validateArticle()
+    {
+        return request()->validate([
+            'title' => 'required',
+            'except' => 'required',
+            'body' => 'required',
+        ]);
     }
 }
