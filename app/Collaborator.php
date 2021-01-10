@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Collabolator
+class Collaborator
 {
-    
+
 }

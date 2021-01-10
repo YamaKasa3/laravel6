@@ -4,15 +4,13 @@ namespace App;
 
 class Example
 {
-    // protected $foo;
+    protected $collaborator;
 
-    // public function __construct($foo)
-    // {
-    //     $this->foo = $foo;
-    // }
+    protected $foo;
 
-    public function go()
+    public function __construct(Collaborator $collaborator, $foo)
     {
-        dump('it works!');
+        $this->collaborator = $collaborator;
+        $this->foo = $foo;
     }
 }
