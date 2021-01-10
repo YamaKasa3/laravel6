@@ -35,3 +35,14 @@ Route::get('/articles/create', 'ArticlesController@create');
 Route::get('/articles/{article}', 'ArticlesController@show')->name('articles.show');
 Route::get('/articles/{article}/edit', 'ArticlesController@edit');
 Route::put('/articles/{article}', 'ArticlesController@update');
+
+Route::get('/test', function() {
+    $container = new \App\Container();
+
+    $container->bind('example', function() {
+        return new \App\Example();
+    });
+
+    $example = $container->resolve('example');
+    $example->go();
+});
