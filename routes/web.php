@@ -15,6 +15,19 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+// app()->bind('example', function() {
+//     $foo = config('services.foo');
+
+//     return new \App\Example($foo);
+// });
+
+Route::get('/', function() {
+    $example = resolve(App\Example::class);
+
+    ddd($example);
+});
+
+/*
 Route::get('/', function () {
     return view('welcome');
 });
@@ -46,3 +59,4 @@ Route::get('/test', function() {
     $example = $container->resolve('example');
     $example->go();
 });
+*/
