@@ -4,13 +4,15 @@ namespace App;
 
 class Example
 {
-    protected $collaborator;
+    protected $apiKey;
 
-    protected $foo;
-
-    public function __construct(Collaborator $collaborator, $foo)
+    public function __construct($apiKey)
     {
-        $this->collaborator = $collaborator;
-        $this->foo = $foo;
+        $this->apiKey = $apiKey;
+    }
+
+    public function handle()
+    {
+        die('It works');
     }
 }
