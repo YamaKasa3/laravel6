@@ -7,3 +7,5 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', 'PagesController@home');
+Route::get('/contact', 'ContactController@show');
+Route::post('/contact', 'ContactController@store');
